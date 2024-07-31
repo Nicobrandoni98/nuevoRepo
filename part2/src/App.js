@@ -61,7 +61,7 @@ const App = () => {
   const [persons, setPersons] = useState([]); 
   const hook = () => {
     axios
-      .get("http://localhost:3002/persons")
+      .get("http://localhost:3001/persons")
       .then(response => {
         setPersons(response.data)
       })
@@ -83,11 +83,11 @@ const App = () => {
     } else {
       const personsObject = {
         name: newName,
-        id: persons.length + 1,
+        id: String(persons.length >= 1 ? persons.length + 1 : 1),
         number: newNumber,
       };
       axios
-        .post("http://localhost:3002/persons", personsObject)
+        .post("http://localhost:3001/persons", personsObject)
         .then (response => {
           setPersons(persons.concat(response.data));
           setNumber("");
@@ -99,10 +99,10 @@ const App = () => {
 
   const deletePerson = (id) => {
     axios
-      .delete(`http://localhost:3002/persons/${id}`)
+      .delete("http://localhost:3001/persons/" + id)
       .then(response => {
         console.log('Persona borrada:', response.data);
-        setPersons(persons.filter(person => person.id !== id));
+        setPersons(persons.filter(persons => persons.id !== id));
       })
       .catch(error => {
         console.error('Error deleting persona:', error);
