@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/**",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/"
+      }
+    ],
+    "projectId": "prj_WU9ww6otkg2u0KdL7ygg283BQyUJ",
+    "orgId": "team_YnTnBoubnn0Pb4zMmt2i9Spy"
+  }
