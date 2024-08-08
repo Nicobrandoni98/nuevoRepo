@@ -41,6 +41,10 @@ app.get("/api/notes", (request, response) => {
 });
 
 const PORT = 3001;
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+module.exports = app;
+
